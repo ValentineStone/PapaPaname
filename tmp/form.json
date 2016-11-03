@@ -1,0 +1,39 @@
+{
+    "default-font1":
+    {
+        "font-name": "Arial",
+        "font-style": "normal",
+        "font-size": 12
+    },
+    "fields":
+    [
+        {
+            "name": "order-number",
+            "x": 100,
+            "y": 100,
+            "font":
+            {
+                "font-style": "italics",
+                "font-size": 20
+            }
+        },
+        {
+            "name": "order-date",
+            "x": 100,
+            "y": 200,
+            "font":
+            {
+                "font-size": 16
+            }
+        },
+        {
+            "name": "verification-number",
+            "x": 100,
+            "y": 300,
+            "font":
+            {
+                "font-name": "monospaced"
+            }
+        }
+    ]
+}
