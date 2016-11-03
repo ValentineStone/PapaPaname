@@ -1,16 +1,37 @@
 package com.valentine.papapaname;
 
-import java.awt.*;
-import java.awt.image.*;
-import java.io.*;
-import java.nio.file.*;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.Reader;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-import javax.imageio.*;
-
-import com.google.gson.*;
+import com.google.gson.Gson;
 
 public class Main
 {
+	public static void main(String[] _args) throws FileNotFoundException
+	{
+		Path homePath = Paths.get(System.getProperty("user.dir") + "/tmp");
+		
+		Utils.exitIfPathDoesNotExist(homePath);
+		
+		Path formJsonPath = homePath.resolve("prntr.json");
+		
+		Utils.exitIfPathDoesNotExist(formJsonPath);
+		
+		Reader rdr = new FileReader(formJsonPath.toFile());
+		
+		Gson gson = new Gson();
+		FormPrinter formPrinter = gson.fromJson(rdr, FormPrinter.class);
+		
+		System.err.println( formPrinter.toString() );
+		//Arrays.toString(formPrinter.fields)
+		
+		formPrinter.assebmle();
+	}
+	
+	/*
 	public static void main(String[] _args) throws IOException
 	{
 		// Path homePath = Paths.get(System.getProperty("user.home") + "/PapaPaname");
@@ -49,4 +70,5 @@ public class Main
 		Font defaultFont = FontExt.readFromJson(defaultFontJson);
 		System.err.println(defaultFont.toString());
 	}
+	*/
 }

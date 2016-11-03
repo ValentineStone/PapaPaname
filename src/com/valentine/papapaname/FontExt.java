@@ -18,7 +18,7 @@ public abstract class FontExt
 		DEFAULT_FONT_NAME,
 		DEFAULT_FONT_STYLE,
 		DEFAULT_FONT_SIZE
-	);
+	); 
 	
 	public static Font readFromJson(JsonElement _fontJsonElem, Font _defaultFont)
 	{
